@@ -1,0 +1,2 @@
+default background: #1a1a1a
+top bar: #141417
