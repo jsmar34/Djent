@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -16,6 +17,22 @@
       <tr>
         <td>
           <!-- put profile information in php here -->
+          <?php
+
+          $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
+
+          $sql = "SELECT * FROM users WHERE Username = $_SESSION[1]";
+
+          $result = $conn->query($sql);
+
+          if ($result->num_rows > 0) {
+              // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<br> Username: ". $row["Username"]. "  | " . " Email: ". $row["EmailAdress"]. "" .  "<br>";
+            }
+          }
+
+          ?>
         </td>
       </tr>
       <!-- top nav bar -->

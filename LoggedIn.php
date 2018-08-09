@@ -1,7 +1,4 @@
-
-<?php
-
-?>
+<?php session_start(); ?>
   <!DOCTYPE HTML>
 <html>
 
@@ -13,7 +10,6 @@
   <body>
 
   <?php
-    session_start();
     $canLogin = false;
 
     $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
