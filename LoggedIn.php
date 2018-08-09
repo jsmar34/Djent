@@ -21,7 +21,7 @@
     $usrname = $_POST["username"];
     $pswd = $_POST["password"];
 
-    $sql = "SELECT Password FROM `users` WHERE '$usrname' = Username";
+    $sql = "SELECT Password FROM `users` WHERE '$usrname' = Username AND '$pswd' = Password";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -45,6 +45,8 @@
     } else {
         $canLogin = false;
         print("<br>Incorrect username or password");
+        header("Location: wrongPass.php");
+        die("Redirecting...");
     }
 
 
