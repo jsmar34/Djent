@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php
+  if (!isset($_SESSION)) {
+    session_start();
+  }
+?>
   <!DOCTYPE HTML>
 <html>
 
@@ -11,7 +15,6 @@
 
   <?php
     $canLogin = false;
-
     $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
 
     $usrname = $_POST["username"];
@@ -32,11 +35,11 @@
 
     if($canLogin)
     {
-        setcookie('user', md5($usrname));
-        header("Location: index.php");
-        die("Redirecting to default");
+        setcookie('user', $usrname);
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $usrname;
+        header("Location: index.php");
+        die("Redirecting to default");
 
     } else {
         $canLogin = false;
