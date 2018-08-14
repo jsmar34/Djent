@@ -26,7 +26,7 @@
         <ul id="buttons">
           <li><a class="active" href="">Djent</a></li>
           <li><a href="forums.php">Forums</a></li>
-          <li><a href="">Bands</a></li>
+          <li><a href="bands.php">Bands</a></li>
           <li><a href="">Help</a></li>
           <input type="text" id="search" placeholder="Search..">
           <li id="login"><a class="available" href="Profile.php">Profile</a></li>

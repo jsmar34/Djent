@@ -18,35 +18,31 @@
       <tr>
         <td class="sitebuffer">Profile</td>
       </tr>
+      <tr>
+        <td>
+          <!-- put profile information in php here -->
+          <?php
 
-        <!-- put profile information in php here -->
-        <?php
+            $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
 
-          $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
+            //query for user info
+            $sql = "SELECT * FROM users WHERE Username = '" . $_SESSION['username'] . "'";
 
-          //query for user info
-          $sql = "SELECT * FROM users WHERE Username = '" . $_SESSION['username'] . "'";
+            $result = $conn->query($sql);
 
-          $result = $conn->query($sql);
+            //email row
 
-          //image row
-          echo("<img alt='gayboy' src='");
-          while($row = $result->fetch_assoc()) {
-            echo (base64_decode($row["UserImage"]));
-          }
-          echo("'> </img>");
-
-          //email row
-
-          //listing username and emale
-          if ($result->num_rows > 0) {
-              // output data of rows
-            while($row = $result->fetch_assoc()) {
-                echo ("  <tr> <td> " . "<br> Username: ". $row["Username"].  " Email: ". $row["EmailAdress"]. "" .  "</tr> </td> <br>");
+            //listing username and emale
+            if ($result->num_rows > 0) {
+                // output data of rows
+              while($row = $result->fetch_assoc()) {
+                  echo ("<br> Username: ". $row["Username"].  " Email: ". $row["EmailAdress"]. "" .  "<br>");
+              }
             }
-          }
 
-        ?>
+          ?>
+        </td>
+      </tr>
       <!-- top nav bar -->
       <div class="sticky">
         <ul id="buttons">

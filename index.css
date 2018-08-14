@@ -13,6 +13,8 @@ body {
 }
 
 
+
+
 /* navbar */
 div.sticky {
     color: #717171;
@@ -50,6 +52,10 @@ table {
   margin: auto;
 }
 
+#table {
+  border-radius: 5px;
+  border-color: white;
+}
 
 #search {
     opacity: 0.8;
@@ -111,7 +117,6 @@ td {
   text-align: left;
   padding-left: 20px;
   font-size: 50px;
-
 }
 
 .sitebuffer {
