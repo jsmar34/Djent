@@ -48,7 +48,7 @@
         <ul id="buttons">
           <li><a href="index.php">Djent</a></li>
           <li><a href="forums.php">Forums</a></li>
-          <li><a href="">Bands</a></li>
+          <li><a href="bands.php">Bands</a></li>
           <li><a href="">Help</a></li>
           <input type="text" id="search" placeholder="Search..">
           <li id="login"><a class="active" href="">Profile</a></li>

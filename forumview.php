@@ -16,31 +16,17 @@
     <!-- centering table -->
     <table id="back" width=100%>
       <tr>
-        <th class="sitebuffer">FORUMS</th>
+        <th class="sitebuffer">Bands</th>
       </tr>
       <tr>
         <td>
           <table id="table" width=100%>
             <link rel="stylesheet" type="text/css" href="bands">
             <tr>
-                <td id='table'>Writer</td>
-                Forum
             </tr>
             <?php
 
               $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
-
-              //query for band info
-              $sql = "SELECT * FROM forums";
-
-              $result = $conn->query($sql) or die($conn->error);
-
-
-                while($row = $result->fetch_assoc()) {
-
-                    echo("<tr>" . "<td id='table' onclick='' name='name'> <a href='forumview.php'>" . $row["ForumWriter"] . "</td> <td id='table' >" . $row["ForumName"] . "</td>" . "<td id='table'>" . $row["ForumHeading"] . "</td>" . "</a></tr>");
-
-                }
 
             ?>
             <tr>
