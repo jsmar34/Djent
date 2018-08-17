@@ -9,6 +9,12 @@
   <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="index.css">
+      <script>
+        function idSelect(id) {
+          document.getElementById(id).id = 'clicked';
+          alert(id);
+        }
+      </script>
   </head>
 
   <body>
@@ -35,12 +41,20 @@
 
               $result = $conn->query($sql) or die($conn->error);
 
+              function alert($msg) {
+                  echo "<script type='text/javascript'>alert('$msg');</script>";
+              }
 
                 while($row = $result->fetch_assoc()) {
 
-                    echo("<tr>" . "<td id='table' onclick='' name='name'> <a href='forumview.php'>" . $row["ForumWriter"] . "</td> <td id='table' >" . $row["ForumName"] . "</td>" . "<td id='table'>" . $row["ForumHeading"] . "</td>" . "</a></tr>");
+                  echo("<tr  onclick='idSelect(this.id)' id='boi'>" . "<td id='table'>" . $row["ForumWriter"] . "</td> <td id='table' >" . $row["ForumName"] . "</td>" . "<td id='table'>" . $row["ForumHeading"] . "</td>" . "</tr>");
 
                 }
+
+                  // if (isset($_GET['clicked'])) {
+                  //   alert("Hello World");
+                  // } else {
+                  // }
 
             ?>
             <tr>

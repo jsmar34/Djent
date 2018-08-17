@@ -28,6 +28,7 @@
 
               $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
 
+              $forum = $_GET['clicked'];
             ?>
             <tr>
               <td><button>Write Forum</button></td>
