@@ -9,6 +9,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="loginStyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -28,7 +29,10 @@
           <td><button type="submit" class="button">Login</td>
       </tr>
   </form>
+
   </table>
+
+    <center><button class="button"><a href="SignUp.php">Sign Up</a></button></center>
 </body>
 
 </html>

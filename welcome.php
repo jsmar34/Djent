@@ -8,7 +8,7 @@
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="loginStyle.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
 
   <body>
@@ -23,13 +23,19 @@
     $email = $_POST["email"];
     $pswd = $_POST["password"];
     $cpswd = $_POST["confirmPassword"];
+    $dateJoin = date("Y-m-d");
+    $lastOnline = date("Y-m-d-h-i-s");
     if ($pswd == $cpswd) {
-      echo("Welcome to the site " . $usrname . "\n");
-      $sql = "INSERT into users (Username, Password, EmailAdress, OnlineStatus, UserImage) VALUES ($usrname, $pswd, $email, 1, $usrImg)";
+      $sql = "INSERT INTO users (Username, Password, EmailAdress, OnlineStatus, UserImage, Joined, LastOnline) VALUES ('$usrname', '$pswd', '$email', 1, '$usrImg', '$dateJoin', '$lastOnline')";
         if ($conn->query($sql) === TRUE) {
-            echo "<p onclick= \"location.href='Input.php'\">New record created successfully</p>";
+            setcookie('user', $usrname);
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $usrname;
+            header("Location: index.php");
+            sleep(5);
+            die("Redirecting to default");
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo ("Error: " . $sql . "<br>" . $conn->error);
         }
 
     } else {

@@ -9,6 +9,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="loginStyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
           </td>
         </tr>
           <td>Profile Picture</td>
-          <td><input type="file" id="customImage" name="image"></td>
+          <td><input type="file" id="customImage" name="image" accept="image/*"></td>
       </tr>
       <tr>
           <td>Username</td>
