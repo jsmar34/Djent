@@ -13,7 +13,28 @@
       <script>
         function idSelect(id) {
           document.getElementById(id).id = 'clicked';
-          alert(id);
+          $(document).ready(function(){
+                  $("#table").html("<tr><td id='table'>Writer</td><td id='table'>Name</td><td id='table'>Heading</td></tr>"
+                    + "<?php    
+                      $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
+
+                      //query for band info
+                      $sql = "SELECT * FROM forums";
+
+                      $result = $conn->query($sql) or die($conn->error);
+
+                      function alert($msg) {
+                          echo "<script type='text/javascript'>alert('$msg');</script>";
+                      }
+
+                        while($row = $result->fetch_assoc()) {
+
+                          echo("<tr  onclick='idSelect(this.id)' id='boi'>" . "<td id='table'>" . $row["ForumWriter"] . "</td> <td id='table' >" . $row["ForumName"] . "</td>" . "<td id='table'>" . $row["ForumHeading"] . "</td>" . "</tr>");
+
+                        }
+                    ?>"
+                  );
+          });
         }
       </script>
   </head>
@@ -31,6 +52,8 @@
             <link rel="stylesheet" type="text/css" href="bands">
             <tr>
                 <td id='table'>Writer</td>
+                <td id='table'>Name</td>
+                <td id='table'>Heading</td>
                 Forum
             </tr>
             <?php
@@ -51,12 +74,6 @@
                   echo("<tr  onclick='idSelect(this.id)' id='boi'>" . "<td id='table'>" . $row["ForumWriter"] . "</td> <td id='table' >" . $row["ForumName"] . "</td>" . "<td id='table'>" . $row["ForumHeading"] . "</td>" . "</tr>");
 
                 }
-
-                  // if (isset($_GET['clicked'])) {
-                  //   alert("Hello World");
-                  // } else {
-                  // }
-
             ?>
             <tr>
               <td><button>Write Forum</button></td>
