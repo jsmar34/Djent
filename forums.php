@@ -15,25 +15,20 @@
           document.getElementById(id).id = 'clicked';
           $(document).ready(function(){
                   $("#table").html("<tr><td id='table'>Writer</td><td id='table'>Name</td><td id='table'>Heading</td></tr>"
-                    + "<?php    
-                      $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
+                    + "<?php $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
 
-                      //query for band info
-                      $sql = "SELECT * FROM forums";
+                    //query for band info
+                    $sql = "SELECT * FROM forums";
 
-                      $result = $conn->query($sql) or die($conn->error);
+                    $result = $conn->query($sql) or die($conn->error);
 
-                      function alert($msg) {
-                          echo "<script type='text/javascript'>alert('$msg');</script>";
+
+                      while($row = $result->fetch_assoc()) {
+
+                        echo("<tr  onclick='idSelect(this.id)' id='boi'>" . "<td id='table' >" . $row["ForumWriter"] . "</td></tr>");
+
                       }
-
-                        while($row = $result->fetch_assoc()) {
-
-                          echo("<tr  onclick='idSelect(this.id)' id='boi'>" . "<td id='table'>" . $row["ForumWriter"] . "</td> <td id='table' >" . $row["ForumName"] . "</td>" . "<td id='table'>" . $row["ForumHeading"] . "</td>" . "</tr>");
-
-                        }
-                    ?>"
-                  );
+                  ?>");
           });
         }
       </script>
@@ -65,9 +60,6 @@
 
               $result = $conn->query($sql) or die($conn->error);
 
-              function alert($msg) {
-                  echo "<script type='text/javascript'>alert('$msg');</script>";
-              }
 
                 while($row = $result->fetch_assoc()) {
 
