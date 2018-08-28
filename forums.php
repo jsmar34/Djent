@@ -5,30 +5,26 @@
 ?>
 <!DOCTYPE html>
 <html>
-
   <head>
+    <title>Djent - Forums</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="index.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script>
         function idSelect(id) {
           document.getElementById(id).id = 'clicked';
+          var i = document.getElementById('clicked').id;
           $(document).ready(function(){
-                  $("#table").html("<tr><td id='table'>Writer</td><td id='table'>Name</td><td id='table'>Heading</td></tr>"
-                    + "<?php $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
-
-                    //query for band info
-                    $sql = "SELECT * FROM forums";
-
-                    $result = $conn->query($sql) or die($conn->error);
-
-
-                      while($row = $result->fetch_assoc()) {
-
-                        echo("<tr  onclick='idSelect(this.id)' id='boi'>" . "<td id='table' >" . $row["ForumWriter"] . "</td></tr>");
-
-                      }
-                  ?>");
+            $("#table").html("<tr><td id='table'>Writer</td><td id='table'>Name</td><td id='table'>Heading</td></tr");
+            $.ajax({
+                type: "GET",
+                id: "clicked",
+                url: 'forums.php',
+                data: {id: 'clicked'},
+                success: function(data){
+                    alert(data);
+                }
+            })
           });
         }
       </script>

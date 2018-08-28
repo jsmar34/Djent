@@ -7,6 +7,7 @@
 <html>
 
   <head>
+      <title>Djent - Wrong Password</title>
     <audio controls autoplay>
         <source src="Howard.mp3" type="audio/mp3">
     </audio >
