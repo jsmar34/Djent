@@ -5,7 +5,7 @@
 ?>
 <!DOCTYPE html>
 <html>
-  <title>Djent - Forums</title>
+  <title>Djent - Bands</title>
   <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="index.css">
@@ -17,7 +17,7 @@
     <!-- centering table -->
     <table id="back" width=100%>
       <tr>
-        <th class="sitebuffer">Forum</th>
+        <th class="sitebuffer">Bands</th>
       </tr>
       <tr>
         <td>
@@ -30,20 +30,17 @@
               $conn = mysqli_connect("localhost","root","", "jsmar34_djent") or die(mysql_error());
 
               //query for band info
-              $sql = "SELECT * FROM forums WHERE ForumName = '" . $_GET['forumname'] . "'";
+              $sql = "SELECT * FROM bands WHERE BandName = '" . $_GET['band'] . "'";
 
               $result = $conn->query($sql) or die($conn->error);
 
 
                 while($row = $result->fetch_assoc()) {
 
-                  echo("<tr>" . "<td id='table'>Active Status</td>" . "<td id='table'>" . $row["ActiveStatus"] . "</td></tr>"); 
-                  echo("<tr>" . "<td id='table'>Date Created</td>" . "<td id='table'>" . $row["Date"] . "</td></tr>");
-                  echo("<tr>" . "<td id='table'>Forum Name</td>" . "<td id='table'>" . $row["ForumName"] . "</td></tr>");
-                  echo("<tr>" . "<td id='table'>Forum Writer</td>" . "<td id='table'>" . $row["ForumWriter"] . "</td></tr>");
-                  echo("<tr>" . "<td id='table'>Forum Heading</td>" . "<td id='table'>" . $row["ForumHeading"] . "</td></tr>");
-                  echo("<tr>" . "<td id='table'>Forum Subheading</td>" . "<td id='table'>" . $row["ForumSubheading"] . "</td></tr>");
-                  echo("<tr>" . "<td id='table'>Forum Content</td>" . "<td id='table' class='table'>" . $row["ForumContent"] . "</td></tr>");
+                  echo("<tr>" . "<td id='table'>Band Name</td>" . "<td id='table'>" . $row["BandName"] . "</td></tr>");
+                  echo("<tr>" . "<td id='table'>Sample Audio</td>" . "<td id='table'>" . $row["SampleAudio"] . "</td></tr>");
+                  echo("<tr>" . "<td id='table'>Date Founded</td>" . "<td id='table'>" . $row["DateFounded"] . "</td></tr>");
+                  echo("<tr>" . "<td id='table'>Number Of Albums</td>" . "<td id='table'>" . $row["NumberOfAlbums"] . "</td></tr>");
 
 
                 }
@@ -55,8 +52,8 @@
       <div class="sticky">
         <ul id="buttons">
           <li><a href="index.php">Djent</a></li>
-          <li><a class="active" href="forums.php">Forums</a></li>
-          <li><a href="bands.php">Bands</a></li>
+          <li><a href="forums.php">Forums</a></li>
+          <li><a class="active" href="bands.php">Bands</a></li>
           <li><a href="">Help</a></li>
           <input type="text" id="search" placeholder="Search..">
           <li id="login"><a class="available" href="Profile.php">Profile</a></li>

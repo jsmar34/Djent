@@ -17,7 +17,7 @@
     <!-- centering table -->
     <table id="back" width=100%>
       <tr>
-        <th class="sitebuffer">Bands</th>
+        <th class="sitebuffer">FORUMS</th>
       </tr>
       <tr>
         <td>
@@ -25,8 +25,6 @@
             <link rel="stylesheet" type="text/css" href="bands">
             <tr>
                 <td id='table'>Band Name</td>
-                <td id='table'>Number of Albums</td>
-                <td id='table'>Year Founded</td>
             </tr>
             <?php
 
@@ -37,12 +35,16 @@
 
               $result = $conn->query($sql) or die($conn->error);
 
-
                 while($row = $result->fetch_assoc()) {
-                    echo("<tr> <td id='table' >" . $row["BandName"] . "</td>" . "<td id='table' >" . $row["NumberOfAlbums"] . "</td>" . "<td id='table'>" . $row["DateFounded"] . "</td>" . "</tr>");
-                }
 
+                  echo("<tr>" . "<td id='table'>" . "<a href = 'bandview.php?band=" . $row["BandName"] . "'>" . $row["BandName"] . "</a></td></tr>");
+
+                }
             ?>
+            <tr>
+              <td><button>Add Band</button></td>
+              <tr>Click a band to view its details</tr>
+            </tr>
         </table>
         </td>
       </tr>
